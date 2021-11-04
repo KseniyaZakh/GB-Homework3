@@ -1,7 +1,6 @@
 package gb.ru.homework3;
 
-import java.util.ArrayList;
-import java.util.HashSet;
+import java.util.*;
 
 public class Homework3 {
     public static void main(String[] args) {
@@ -19,5 +18,16 @@ public class Homework3 {
         HashSet<String> breadUniq = new HashSet<>(bread);
         System.out.println(breadUniq);
         System.out.println(breadUniq.size());
+
+        HashMap<String, Integer> countMap = new HashMap<>();
+        for (String word : bread) {
+            if (countMap.containsKey(word)) {
+                Integer count = countMap.get(word) + 1;
+                countMap.put(word, count);
+            } else {
+                countMap.put(word, 1);
+            }
+        }
+        System.out.println(countMap);
     }
 }
