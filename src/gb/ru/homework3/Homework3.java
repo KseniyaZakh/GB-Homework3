@@ -1,6 +1,9 @@
 package gb.ru.homework3;
 
 import java.util.*;
+import java.util.function.Function;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 public class Homework3 {
     public static void main(String[] args) {
@@ -19,13 +22,14 @@ public class Homework3 {
         System.out.println(breadUniq);
         System.out.println(breadUniq.size());
 
-        HashMap<String, Integer> countMap = new HashMap<>();
-        for (String word : bread) {
-            //    int count = countMap.getOrDefault(word, 0) + 1;
-            //    countMap.put(word, count);
-            countMap.merge(word, 1, Integer::sum);
-        }
-
+        // HashMap<String, Integer> countMap = new HashMap<>();
+        //for (String word : bread) {
+        //    int count = countMap.getOrDefault(word, 0) + 1;
+        //    countMap.put(word, count);
+        //  countMap.merge(word, 1, Integer::sum);
+        // }
+        Map<String, Long> countMap = bread.stream()
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
         System.out.println(countMap);
     }
 }
