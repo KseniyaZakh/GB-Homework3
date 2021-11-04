@@ -31,5 +31,14 @@ public class Homework3 {
         Map<String, Long> countMap = bread.stream()
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
         System.out.println(countMap);
+
+        PhoneBook phoneBook = new PhoneBook();
+        phoneBook.add("Smirnova","89215552454");
+        phoneBook.add("Ivanov","89215362454");
+        phoneBook.add("Smirnova","89212552454");
+        phoneBook.add("Korchagin","89213324534");
+        System.out.println(phoneBook.getName("Smirnova"));
+
+
     }
 }
