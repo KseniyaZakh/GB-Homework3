@@ -21,9 +21,11 @@ public class Homework3 {
 
         HashMap<String, Integer> countMap = new HashMap<>();
         for (String word : bread) {
-            int count = countMap.getOrDefault(word, 0) + 1;
-            countMap.put(word, count);
+            //    int count = countMap.getOrDefault(word, 0) + 1;
+            //    countMap.put(word, count);
+            countMap.merge(word, 1, Integer::sum);
         }
+
         System.out.println(countMap);
     }
 }
