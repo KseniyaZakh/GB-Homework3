@@ -21,12 +21,8 @@ public class Homework3 {
 
         HashMap<String, Integer> countMap = new HashMap<>();
         for (String word : bread) {
-            if (countMap.containsKey(word)) {
-                Integer count = countMap.get(word) + 1;
-                countMap.put(word, count);
-            } else {
-                countMap.put(word, 1);
-            }
+            int count = countMap.getOrDefault(word, 0) + 1;
+            countMap.put(word, count);
         }
         System.out.println(countMap);
     }
